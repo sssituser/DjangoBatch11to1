@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+
+        fetch("https://jsonplaceholder.typicode.com/users")
+        .then((res)=>{
+           return res.json();
+        }).then((users)=>{
+          users.map((user)=>{
+            let option = document.createElement("option")
+            option.text = user.id;
+            option.value = user.id;
+            let select = document.getElementById("s1");
+            select.appendChild(option);
+          })
+        })
+       
+    </script>
+</head>
+<body>
+    <select  id="s1" >
+        <option value="select">select</option>
+    </select>
+</body>
+</html>

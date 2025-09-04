@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" id="username" placeholder="Enter User Name"><br><br>
+    <input type=" password" id="pwd" placeholder="Enter Password"><br><br>
+    <button onclick="validation()">Login</button>
+</body>
+<script>
+    function validation(){
+        let user = document.getElementById("username").value;
+        let pawd = document.getElementById("pwd").value;
+        alert(user+"  "+pawd)
+        if(user==""){
+            document.getElementById("username").style.borderColor="red";
+        }else{
+             document.getElementById("username").style.borderColor="green";
+        }
+         if(pawd==""){
+            document.getElementById("pwd").style.borderColor="red";
+        }else{
+             document.getElementById("pwd").style.borderColor="green";
+        }
+    }
+</script>
+</html>

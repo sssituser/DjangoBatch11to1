@@ -1,0 +1,63 @@
+Django follows MVT Arch-Pattern
+In MVT
+M stands for Model :
+	Model is python class like Student,Employee,Product et		Model can Intract with Database
+
+V Views :
+	Views is a python file in which
+	we define function for the 	respective template(htmlpage) present in the templates folder. 
+
+T Template : Template is a html file which is linked with view.
+	     These htmlfiles can be embeded with python script.
+
+
+Create project
+	c:/users/arun>django-admin startproject templateproject
+	c:/users/arun>cd templateproject
+	c:/users/arun/templateproject>python manage.py startapp myapp
+	
+	Create a templates folder in application
+	Add home.html,register.html,login.html
+	
+	In Application's views.py
+	==========================================
+	def home(request):
+		return render(request,'home.html')
+	def register(request):
+		return render(request,'register.html')
+	def login(request):
+		return render(request,'login.html')
+	===========================================
+	Create urls.py file in the application myapp
+	from django.urls import path
+	from myapp import views
+	
+	urlpatterns=[
+		path('',views.home),
+		path('reigster/',views.register),
+		path('login/',views.login),
+	]
+	
+	In project urls.py
+	
+	from django.urls import path,inclde
+	urlpatterns=[
+		path('myapp/',include('myapp.urls'),
+	]
+	
+	
+	
+	
+	 
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+		

@@ -1,0 +1,56 @@
+
+py manage.py startproject myproject
+cd myproject 
+myproject>pr manage.py startapp myapp
+=====================================
+In model.py Add class
+class Student(models.Model):
+	sno = models.IntegerField()
+	sname = models.characterField()
+	
+=================================================
+In Admin.py Add Admin class and Site Registration
+=================================================	
+from myapp.models import Student
+class StudentAdmin(models.Admin):
+	list_display = ['sno','sname']
+admin.site.register(Student,StudentAdmin)
+===================================================
+In views.py
+===================================================
+
+
+
+==========================
+Create urls.py  In myapp
+=========================
+
+
+
+==================================
+In Project urls.py
+==================================
+
+
+
+
+===================================
+Create Template/myapp/index.html and Set Path
+===================================
+
+
+
+
+=======================================
+makemigrations
+=======================================
+
+
+======================================
+migrate
+======================================
+
+
+
+
+

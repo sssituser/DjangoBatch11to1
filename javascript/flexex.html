@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #container {
+            display: flex;
+            flex-direction: column;
+        }
+        .box {
+            height: 150px;
+            width: 150px;
+            margin: 20px;
+            border: 1px solid black;
+            text-align: center;
+            justify-content: center;
+            font-size: larger;
+        }
+    </style>
+</head>
+<body>
+    <div id="container">
+       <div class="box" style="background-color:red;color:white">
+        Lorem ipsum dolor sit amet.
+       </div>
+       <div class="box" style="background-color: blue;color:white">
+        Lorem ipsum dolor sit amet.
+       </div>
+       <div class="box" style="background-color: green;color:white">
+        Lorem ipsum dolor sit amet.
+       </div>
+    </div>
+    <button onclick="changeDirection()">Change</button>
+    <script>
+        function changeDirection() {
+            let container = document.getElementById("container");
+            container.style.flexDirection = "row"; 
+           
+        }
+    </script>
+</body>
+</html>

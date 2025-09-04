@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+{%load static%}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+        <h2>Students Information</h2>
+        {%if stu_list %}
+            <table>
+                <thead>
+                    <tr>
+                        <th>Student Id</th>
+                        <th>Student Name</th>
+                        <th>Student Marks</th>
+                    </tr>
+                </thead>
+            {%for stu in stu_list%}
+                <tbody>
+                    <tr>
+                        <td>{{stu.stuId}}</td>
+                        <td>{{stu.stuName}}</td>
+                        <td>{{stu.stuMarks}}</td>
+                    </tr>
+                </tbody>
+            {%endfor%}
+            </table>
+        {%else%}
+        <p>Student Records not Available</p>
+        {%endif%}
+</body>
+</html>
