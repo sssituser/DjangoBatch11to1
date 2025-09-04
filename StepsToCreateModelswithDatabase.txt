@@ -1,0 +1,72 @@
+  
+1.Create the project
+2.Create the application
+3.Configuare the MySQL database.
+	In settings.py
+	  1.Installed App Add  Application
+	  2.Create the path for the templates		
+		TEMPLATES_DIR = BASE_DIR/'templates'd
+	DATABASES :
+		Engine : 'Django.db.backend.mysql'
+		NAME : 'djnagodb',
+		USER :'root',
+	     PASSWORD:'root',
+	     HOST :'localhost'
+	     PORT :'3306'
+4.Create the database as Djangdb;
+5.in command line pip install django_seed
+6.Create model class with Fields
+7.In admin.py
+	Create a Admin class and added list_display
+	Add site registration with model and Admon class
+	admin.site.register(Employoee,EmployeeAdmin)
+8.In views.py
+	Created function
+		Get the Data base
+		Student_list = Student.Object.all();
+		student_dict = {'student_list':Student_list}
+		return render(request,'myapp/index.html',student_dict)
+9.Created urls.py  in myapp
+	
+	urlpatterns = [
+
+			myapp('',views.index)
+10.In projects urls.py
+
+		urlpatterns = [
+			path('myapp/',include('myapp.urls'))
+
+		]
+11.py manage.py makemigrations
+12.py manage.py migrate
+13.py manage.py seed myapp --number=10
+14.In templates folder need design index.html
+
+{%load static %}
+
+{% if student_list %} :
+	
+	{% for var in student_list %}
+		
+
+
+	{% endfor %}
+
+{% else % }
+
+
+{% endif % }
+
+
+
+
+
+
+
+
+
+
+	
+
+		
+			
