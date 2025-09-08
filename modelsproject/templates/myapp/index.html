@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+{% load static%}
+<html lang="en">
+<head>
+       <title>Document</title>
+</head>
+<body>
+        <h1>Employe List</h1>
+        {% if emp_list %}
+        <table border="1" cellspacing="0">
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>EmpName</th>
+                </tr>
+            </thead>
+            {% for emp in emp_list %}
+            <tr>
+                <td>{{emp.id}}</td>
+                <td>{{emp.ename}}</td>
+            </tr>
+            {% endfor %}
+
+        </table>
+        {% else %}
+        <p>Records  are Not There</p>
+        {%endif %}
+</body>
+</html>

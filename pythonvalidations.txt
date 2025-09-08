@@ -1,0 +1,41 @@
+forms.py
+from django import forms
+from django.core.validators import EmailValidator, RegexValidator, MinLengthValidator
+from django.core.exceptions import ValidationError
+
+
+def validate_no_spaces(value):
+    if ' ' in value:
+        raise ValidationError("Spaces are not allowed.")
+
+
+class RegistrationForm(forms.Form):
+    username = forms.CharField(
+        label="Username",
+        min_length=4,
+        max_length=20,
+        validators=[
+            RegexValidator(r'^[A-Za-z0-9_]+$', "Only letters, numbers, and underscores allowed."),
+            validate_no_spaces,
+        ],
+    )
+    email = forms.EmailField(validators=[EmailValidator(message="Enter a valid email.")])
+    password = forms.CharField(
+        widget=forms.PasswordInput,
+        validators=[MinLengthValidator(8, "Password must be at least 8 characters.")],
+    )
+    confirm_password = forms.CharField(widget=forms.PasswordInput)
+
+    def clean_username(self):
+        username = self.cleaned_data["username"]
+        if username.lower().startswith("admin"):
+            raise ValidationError("Username cannot start with 'admin'.")
+        return username
+
+    def clean(self):
+        cleaned = super().clean()
+        pw = cleaned.get("password")
+        cpw = cleaned.get("confirm_password")
+        if pw and cpw and pw != cpw:
+            self.add_error("confirm_password", "Passwords do not match.")
+        return cleaned

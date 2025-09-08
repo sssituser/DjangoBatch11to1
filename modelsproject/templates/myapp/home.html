@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+{%load static%}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Employee Table</h1>
+    {% if emp_list %}
+
+    <table>
+        <thead>
+            <tr>
+                <th>EmployeID</th>
+                <th>Employee No</th>
+                <th>Employee Name</th>
+            </tr>
+        </thead>
+        {%for emp in emp_list%}
+        <tr>
+            <td>{{emp.id}}</td>emp.ename <td></td>  <td>emp.esal</td>
+        </tr>
+        {% endfor %}
+
+    </table>
+
+    {% else %}
+
+
+
+
+    {% endif %}
+</body>
+</html>
