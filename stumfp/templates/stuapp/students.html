@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+{%load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" rel="stylesheet" />
+<link href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/9.2.0/mdb.min.css" rel="stylesheet" />
+  
+</head>
+<body>
+<div class="container">
+    <div class="row">
+        <div class="col-md-8">
+
+            <div class="card">
+                <div class="card-body">
+                    {%if stu_list %}
+    
+        <table class="table table-bordered table-striped table-hover text-center">
+            <thead class="table-success">
+            <tr>
+             <th>Student Id</th>
+            <th>Student Name</th>
+            <th>Student Marks</th>
+            <th>Opertions</th>
+       
+        </tr>
+</thead>
+
+            {%for stu in stu_list%}
+                <tr>
+                    <td>{{stu.StuId}}</td>
+                    <td>{{stu.StuName}}</td>
+                    <td>{{stu.StuMarks}}</td>
+                    <td>
+ <a href="{% url 'showstudent' %}" class="btn btn-primary btn-sm">Show</a>
+ <a href="{% url 'editstudent' %}" class="btn btn-success btn-sm">Update</a>
+ <a href="{% url 'deletestudent' %}" class="btn btn-danger  btn-sm">Delete</a>
+                    </td>
+               
+                </tr>
+            {%endfor%}
+
+        </table>    
+        <a href="{% url 'addStudent'  %}" class="btn btn-sm btn-outline-danger">Back</a>
+
+
+
+    {%else%}
+
+        <h3>Records Not Available</h3>
+
+    {%endif%}
+
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+
+</div>  
+ 
+
+   
+
+
+        
+
+</body>
+</html>
