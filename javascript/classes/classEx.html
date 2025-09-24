@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+<script>
+    class Employee{
+        constructor(empId,empName,empSal){
+            this.empId = empId;
+            this.empName = empName;
+            this.empSal = empSal;
+        }
+        showEmployee(){
+            return `Employee ID : ${this.empId} <br> Employee Name : ${this.empName}
+            <br>Employee Salary : ${this.empSal}
+            `
+        }
+
+
+    }
+    let emp1 = new Employee(111,'kiran',55000);
+    document.writeln("<br> "+emp1.showEmployee())
+    let emp2 = new Employee(112,'Raj',60000);
+    document.writeln("<br> "+emp2.showEmployee())
+
+</script>
+
+
+
+</body>
+</html>

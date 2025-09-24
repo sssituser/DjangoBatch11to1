@@ -13,8 +13,13 @@ def index(request):
     return render(request,'stuapp/index.html',stu_dict)
 
 def getStudents(request):
-    stu_list = Student.objects.all()
-    stu_list_dict = {'stu_list':stu_list}
+    stuname = request.GET.get("sname")
+    if stuname :
+        stu = Student.objects.filter(StuName__icontains=stuname)
+        stu_list_dict={'stu_list':stu}
+    else :
+        stu_list = Student.objects.all()
+        stu_list_dict = {'stu_list':stu_list}
     return render(request,'stuapp/students.html',stu_list_dict)
 
 

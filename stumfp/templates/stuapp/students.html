@@ -19,8 +19,31 @@
        
         <div class="col">
             <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Atque, ut et voluptas quaerat accusantium nulla voluptatem laudantium blanditiis voluptate laborum in ipsum! Omnis alias, perspiciatis ratione dolorem magni, incidunt exercitationem, excepturi ea sed aspernatur explicabo ut accusantium quia magnam quis saepe ipsum. Impedit temporibus earum odio enim ratione doloremque eum repellendus ducimus eveniet, delectus aspernatur quo explicabo aliquam blanditiis quis?</p>
-              <a href="{% url 'addStudent'  %}" class="btn btn-sm btn-outline-danger">Add Employee</a>
-            <div class="card animated bounceIn  ">
+             <form action="">
+                      <div class="row">
+                    <div class="col-md-8">
+                    <a href="{% url 'addStudent'  %}" class="btn btn-md btn-danger">Add Employee</a>
+
+              <div>
+                               
+                    
+                
+              </div>
+            </div>
+            <div class="col-md-2">
+               
+                        <input type="text" name="sname" placeholder="Enter Name" class=" form-control mb-4 float-end"/>
+                    
+            </div>
+            <div class="col-md-2">
+            <button class="btn btn-md btn-warning">Search</button>
+            </div>
+
+            </div>
+             </form>
+           
+
+              <div class="card animated bounceIn  ">
                 <div class="card-body">
                     {%if stu_list %}
     
@@ -38,12 +61,12 @@
             {%for stu in stu_list%}
                 <tr>
                     <td>{{stu.StuId}}</td>
-                    <td>{{stu.StuName}}</td>
+                    <td>{{stu.StuName | lower}}</td>
                     <td>{{stu.StuMarks}}</td>
                     <td>
- <a href="{% url 'showstudent' stu.id %}" class="btn btn-primary btn-sm">Show</a>
- <a href="{% url 'editstudent' stu.id %}" class="btn btn-success btn-sm">Update</a>
- <a href="{% url 'deletestudent' stu.id %}" class="btn btn-danger  btn-sm">Delete</a>
+ <a href="{% url 'showstudent' stu.id %}" class="btn btn-primary btn-sm"><i class="fa fa-eye fa-2x"></i></a>
+ <a href="{% url 'editstudent' stu.id %}" class="btn btn-success btn-sm"><i class="fa fa-pen fa-2x"></i></a>
+ <a href="{% url 'deletestudent' stu.id %}" class="btn btn-danger  btn-sm"><i class="fa fa-trash fa-2x"></i></a>
                     </td>
                
                 </tr>

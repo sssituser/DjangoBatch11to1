@@ -1,0 +1,22 @@
+public static DataTable searchdt1(string stdate, string enddate)
+{
+
+    string qry1 = string.Format("select sum(amount) [PAID FEE] from feedetails");
+    SqlConnection con = new SqlConnection(@"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=sssitdb;Integrated Security=True;Encrypt=False");
+
+    try
+    {
+        SqlCommand cmd1 = new SqlCommand(qry1, con);
+        cmd1.Parameters.AddWithValue("@date", stdate);
+        cmd1.Parameters.AddWithValue("@dt", enddate);
+        SqlDataAdapter da1 = new SqlDataAdapter(cmd1);
+        DataSet ds = new DataSet();
+        da1.Fill(ds, "feedetails");
+        return ds.Tables["feedetails"];
+    }
+    catch (Exception ex)
+    {
+        HttpContext.Current.Trace.Write("Error in Search -->" + ex.Message);
+        return null;
+    }
+}

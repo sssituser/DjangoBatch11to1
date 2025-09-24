@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+            class Calcy{
+                 sum(a,b){
+                    return `sum of two number is:${a+b}`
+                }
+                sub(a,b){
+                    return `sub of two number is:${a-b}`
+                }
+                mul(a,b){
+                    return `mul of two number is:${a*b}`
+                }
+                div(a,b){
+                    return `um of two number is:${a/b}`
+                }
+            }
+           class SciCaly extends Calcy{
+                sine(val){
+                    document.writeln(`<br>Sin ${val} is ${Math.sin(val)}`)
+                }
+                cosi(val){
+                document.writeln(`<br>cos ${val} is ${Math.cos(val)}`)
+                }
+           }
+           let obj = new SciCaly();     obj.sine(90);       obj.cosi(0);
+           document.writeln(`<br> sum is : ${obj.sum(6,7)}`)
+    </script>
+</body>
+</html>

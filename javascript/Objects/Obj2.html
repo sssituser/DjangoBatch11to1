@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let student ={
+            fname:'kiran',
+            lname:'kumar',
+            age:25,
+            fullName:function(){
+                return this.fname+" "+this.lname;
+            }
+        }
+        let car = new Object();
+        car.brand = "Maruthi"
+        car.Model ="Baleno"
+        car.start = function(){
+            return this.brand+"  "+this.Model;
+        }
+        let employee = {
+            getEmployee:function(){
+                return "Hi this  "+this.name;
+            }
+        }
+        let user ={id:111,name:"ravi"};
+        user.age = 40;
+        employee.name = "Raj"
+        document.writeln("<br> Full Name : "+student.fullName())
+        document.writeln("<br>Car Info :  "+car.start())
+        document.writeln("<br>Employee Info :  "+employee.getEmployee())
+        document.writeln("<br>User Info :  "+JSON.stringify(user))
+        document.writeln("<br>User Info :  "+Object.keys(user))
+        document.writeln("<br>User Info :  "+Object.values(user))
+        document.writeln("<br>User Info :  "+Object.entries(user))
+    </script>
+</body>
+</html>

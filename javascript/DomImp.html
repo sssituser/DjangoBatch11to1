@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+</head>
+<body>
+        <h1 class="odd">Chatper - 1</h1>
+        <p class="odd" >Lorem ipsum dolor sit, amet consectetur adipisicing elit. Fugiat, corporis.</p>
+        <h1 class="even">Chatper - 2</h1>
+        <p class="even" >Lorem ipsum dolor sit, amet consectetur adipisicing elit. Fugiat, corporis.</p>
+      <h1 class="odd">Chatper - 3</h1>
+        <p class="odd">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Fugiat, corporis.</p>
+    <h1 class="even" >Chatper - 4</h1>
+        <p class="even" >Lorem ipsum dolor sit, amet consectetur adipisicing elit. Fugiat, corporis.</p>
+    <button onclick="test()">Submit</button>
+    <script>
+        function test(){
+            let oTags = document.querySelectorAll("h1");
+            oTags.forEach((oTag)=>{
+                oTag.style.color="white";
+                oTag.style.backgroundColor="blue";
+                 oTag.style.textAlign="center";
+            })
+      let eTags = document.querySelectorAll("p");
+            eTags.forEach((eTag)=>{
+                eTag.style.color="white";
+                eTag.style.backgroundColor="green";
+                eTag.style.textAlign="center";
+            })
+        }
+    </script>
+    </body>
+</html>

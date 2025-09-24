@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Quiz</title>
+  <style>
+    #b1 {
+      margin-left: 200px;
+      margin-right: auto;
+    }
+    div {
+      border: 1px solid lightgray;
+      padding: 15px;
+      width: fit-content;
+    }
+  </style>
+  <script>
+    function result() {
+      let score = 0;
+
+      // Correct answers
+      let answers = {
+        cap: "Delhi",
+        fcap: "Mumbai",
+        pm: "Nehru"
+      };
+
+      // Loop over each correct answer key
+      for (let key in answers) {
+        let selected = document.querySelector(`input[name="${key}"]:checked`);
+        alert(selected+" "+selected.value)
+        if (selected && selected.value === answers[key]) {                                                                                                         vv           v                                                        vf                   
+        }
+      }
+
+      // Disable all inputs after submit
+      let inputs = document.querySelectorAll("ol input");
+      inputs.forEach((input) => {
+        input.disabled = true;
+      });
+
+      // Show result
+      document.getElementById("res").innerText = "Score : " + score;
+    }
+  </script>
+</head>
+<body>
+  <div>
+    <ol>
+      <li>
+        What is the Capital of India? <br>
+        <input type="radio" value="Delhi" name="cap"> Delhi
+        <input type="radio" value="Mumbai" name="cap"> Mumbai
+        <input type="radio" value="Chennai" name="cap"> Chennai
+      </li>
+      <li>
+        What is the Financial Capital of India? <br>
+        <input type="radio" value="Delhi" name="fcap"> Delhi
+        <input type="radio" value="Mumbai" name="fcap"> Mumbai
+        <input type="radio" value="Chennai" name="fcap"> Chennai
+      </li>
+      <li>
+        First PM of India? <br>
+        <input type="radio" value="Gandhi" name="pm"> Gandhi
+        <input type="radio" value="Nehru" name="pm"> Nehru
+        <input type="radio" value="Indira" name="pm"> Indira
+      </li>
+    </ol>
+    <button onclick="result()" id="b1">Submit</button>
+    <br>
+    <p id="res"></p>
+  </div>
+</body>
+</html>
