@@ -1,0 +1,137 @@
+react-router-dom : It is a third party lib, It provides navigation
+from one component to other component.
+in react-router-dom we have  BrowserRouter,Routes,Route,Link components.
+
+In order to work with react-router-dom we need follow steps.
+
+1. Install react-router-dom
+
+		npm i react-router-dom
+
+2.Check react-router-dom installed or not
+	    open package.json
+3.Need to configure BrowserRouter in main.jsx(vite)/index.js
+    In App.jsx/App.js
+
+	Before BrowserRouter
+=============================
+import { StrictMode } from 'react'
+import { createRoot } from 'react-dom/client'
+import './index.css'
+import App from './App.jsx'
+
+
+createRoot(document.getElementById('root')).render(
+  <StrictMode>
+    <App />
+  </StrictMode>,
+)
+		
+After BrowserRouter
+=================================
+import { StrictMode } from 'react'
+import { createRoot } from 'react-dom/client'
+import './index.css'
+import App from './App.jsx'
+import {BrowserRouter} from 'react-router-dom'
+
+createRoot(document.getElementById('root')).render(
+  <StrictMode>
+    <BrowserRouter>
+      <App/>
+    </BrowserRouter>
+  </StrictMode>,
+)
+
+
+4.Create a Navbar component.
+	configure Bootstrap in main.jsx
+	Create navigations
+import React, { Component } from 'react'
+import { Link } from 'react-router-dom'
+export default class Navbar extends Component {
+  render() {
+    return (
+      <React.Fragment>
+        <nav className='navbar navbar-expand-sm bg-primary'>
+            <div className="container">
+                <ul className='navbar-nav'>
+                        <li className='nav-item'>
+                            <Link to="/" className='nav-link text-white'>Home</Link>
+                        </li>
+
+                         <li className='nav-item'>
+                            <Link to="/register" className='nav-link text-white'>Register</Link>
+                        </li>
+
+
+                         <li className='nav-item'>
+                            <Link to="/login" className='nav-link text-white'>Login</Link>
+                        </li>
+
+                         <li className='nav-item'>
+                            <Link to="/about" className='nav-link text-white'>About</Link>
+                        </li>
+
+                         <li className='nav-item'>
+                            <Link to="/contact" className='nav-link text-white'>Contact</Link>
+                        </li>
+                </ul>
+            </div>
+        </nav>
+      </React.Fragment>
+    )
+  }
+}
+
+		
+5.Need to configure in App.jsx
+	  <Navarbar> component and
+	   Add components Home,Regiser,Login,About,Contact	
+	 Routes and Route configuation
+
+import React from 'react'
+import {Routes,Route} from 'react-router-dom'
+import Navbar from './components/Navbar'
+import Home from './components/Home'
+import Register from './components/Register'
+import Login from './components/Login'
+import About from './components/About'
+import Contact from './components/Contact'
+import './App.css'
+
+function App() {
+  return (
+    <React.Fragment>
+      <Navbar/>
+      <Routes>
+        <Route path='/' element={<Home/>}/>
+        <Route path='/register' element={<Register/>}/>
+        <Route path='/login' element={<Login/>}/>
+        <Route path='/about' element={<About/>}/>
+        <Route path='/contact' element={<Contact/>}/>
+      </Routes>
+    </React.Fragment>
+  )
+}
+
+export default App
+
+===============================================================================================
+	Props drilling : Transfer of data from parent to child to grand child can be
+	called as props drilling
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
