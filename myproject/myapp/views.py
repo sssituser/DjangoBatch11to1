@@ -1,29 +1,15 @@
 from django.shortcuts import render
-from django.http import HttpResponse
-import datetime
+from myapp.forms import StudentForm
 # Create your views here.
-def home(request):
-    date  = datetime.datetime.now()
-    h = int(date.strftime('%H'))
-    res = '<h1> Hi guest '
-    if h<12 :
-        res += ' Good morning !!!'
-    elif h<16:
-        res+= ' Good Afternoon !!!'
-    elif h<21:
-        res += ' Good Evenging !!!'
-    else:
-        res += ' Good night !!!'
-    res +='</h1><hr>'
-    res +='<h1> Server time is : '+str(date)+'</h1>'
-    return HttpResponse(res)
 def register(request):
-    res ="<h1>Register Here</h1>"
-    return HttpResponse(res)
-def login(request):
-    res = "<h1> Login here </h1>"
-    return HttpResponse(res)
-    
+    stu_form = StudentForm()
+    if request.method == 'POST':
+        stu_form = StudentForm(request.POST,request.FILES)
+        if stu_form.is_valid():
+            stu_form.save()
+            return render(request, 'myapp/show.html',   {'stu_form': stu_form})
+    return render(request, 'myapp/register.html', {'stu_form': stu_form})
 
-
+def show(request):
+    return render(request, 'myapp/show.html')
 
