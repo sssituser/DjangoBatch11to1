@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Employee LIst</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Employee ID</th>
+                <th>Employee Name</th>
+                <th>Employee Salary</th>
+                <th>Operations</th>
+            </tr>
+        </thead>
+        <tbody>
+            {%for emp in emplist%}
+             <tr>
+                <td>{{emp.EmpId}}</td>
+                <td>{{emp.EmpName}}</td>
+                <td>{{emp.EmpSal}}</td>
+                <td>
+                   <a href="{%url 'emp_edit' emp.id %}">Edit</a>
+                    <a href="#">Delete</a>
+                    <a href="#">Find</a>
+                </td>
+             </tr>
+             {%endfor%}
+        </tbody>
+    </table>
+    <a href="{% url 'aggregate' %}">Aggregate View</a>
+</body>
+</html>
