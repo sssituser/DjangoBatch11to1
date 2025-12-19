@@ -20,9 +20,9 @@
                     <div class="card-body">
                         <form action="" method="POST">
                        {%csrf_token%}
-                    <p class="h4">Studet ID : {{stu.StuId}}</p>
-                    <p class="h4">Studet Name : {{stu.StuName}}</p>
-                    <p class="h4">Studet Marks : {{stu.StuMarks}}</p>
+                    <p class="h4">Studet ID : {{object.StuId}}</p>
+                    <p class="h4">Studet Name : {{object.StuName}}</p>
+                    <p class="h4">Studet Marks : {{object.StuMarks}}</p>
                     <p class="h4 text-warning">Do you Want to Delete ?</p>
                     <button class="btn btn-danger btn-sm">Yes</button> 
                     <a href="{% url 'stulist' %}" class="btn btn-warning btn-sm float-end">No</a>

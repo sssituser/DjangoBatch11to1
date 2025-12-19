@@ -19,7 +19,7 @@
                     <div class="card-body bg-opacity-25 bg-primary">
                         <form action="" method="POST">
                             <h2 class="text-center mb-4">Update Employee</h2>
-                            {{ stu_Form.as_p }}
+                            {{ form.as_p }}
                             {% csrf_token %}
                             <button class="btn btn-md btn-success">Save</button>
                             <a href="{% url 'stulist' %}" class="btn btn-md btn-danger float-end">Cancel</a>

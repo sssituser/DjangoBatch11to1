@@ -1,0 +1,31 @@
+{% extends 'myapp/base.html' %}
+{% block body_block %}
+<h2>Employee List</h2>
+
+<a href="{% url 'employee_create' %}">Add Employee</a>
+
+{% if employees %}
+    <table class="table table-bordered table-stripred text-center">
+            <thead>
+                <tr>
+                    <th class="bg-dark text-white">EmpID</th>
+                    <th class="bg-dark text-white">Employee Name</th>
+                    <th class="bg-dark text-white">Employee Salary</th>
+                </tr>
+            </thead>
+            <tbody>
+                {%for emp in employees%}
+                    <tr>
+                        <td>{{emp.eid}}</td>
+                        <td>{{emp.ename}}</td>
+                        <td>{{emp.esal}}</td>
+                    </tr>
+                {%endfor%}
+            </tbody>
+    </table>
+{%else%}
+    <h1 style="color:red;text-align: center;">Records Not Found</h1>
+{%endif%}
+
+{%endblock%}
+

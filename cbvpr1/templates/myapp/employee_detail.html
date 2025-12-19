@@ -1,0 +1,10 @@
+{% extends 'myapp/base.html' %}
+{% block body_block %}
+<h2>Employee Details</h2>
+
+<p>ID: {{ employee.eid }}</p>
+<p>Name: {{ employee.ename }}</p>
+<img src="{{ employee.image.url }}" width="150">
+
+<a href="{% url 'employee_list' %}">Back</a>
+{% endblock %}
